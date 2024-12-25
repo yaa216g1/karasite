@@ -1,0 +1,127 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Serveur Kara - Une communauté extraordinaire!">
+	<main>
+		<div class="hero">
+			<h1>Bienvenue sur <span class="text-gradient">Kara</span></h1>
+			<p class="tagline">Rejoignez une communauté active, drôle et passionnée !</p>
+		</div>
+
+		<section class="features">
+			<div class="feature-card">
+				<h2>🎮 Communauté Active</h2>
+				<p>Des joueurs en ligne 24/7 et des événements réguliers pour ne jamais s'ennuyer !</p>
+			</div>
+
+			<div class="feature-card">
+				<h2>😄 Ambiance Garantie</h2>
+				<p>Une communauté bienveillante et pleine d'humour. Fous rires assurés !</p>
+			</div>
+
+			<div class="feature-card">
+				<h2>🤝 Entraide & Partage</h2>
+				<p>Des joueurs toujours prêts à s'entraider dans une ambiance conviviale.</p>
+			</div>
+		</section>
+
+		<section class="cta">
+			<h2>Prêt à nous rejoindre ?</h2>
+			<p>N'attendez plus pour faire partie de l'aventure !</p>
+			<a href="#" class="join-button">Rejoindre le serveur</a>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: 0 auto;
+		padding: 1rem;
+		max-width: 1200px;
+		color: white;
+	}
+
+	.hero {
+		text-align: center;
+		padding: 4rem 1rem;
+	}
+
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		margin-bottom: 1rem;
+	}
+
+	.tagline {
+		font-size: 1.5rem;
+		color: rgb(var(--accent-light));
+	}
+
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+
+	.features {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+		padding: 4rem 1rem;
+	}
+
+	.feature-card {
+		background: rgba(var(--accent-dark), 0.2);
+		border: 1px solid rgba(var(--accent-light), 0.2);
+		padding: 2rem;
+		border-radius: 8px;
+		transition: transform 0.2s;
+	}
+
+	.feature-card:hover {
+		transform: translateY(-5px);
+	}
+
+	.feature-card h2 {
+		color: rgb(var(--accent-light));
+		margin-bottom: 1rem;
+	}
+
+	.cta {
+		text-align: center;
+		padding: 4rem 1rem;
+		background: linear-gradient(rgba(var(--accent-dark), 0.8), rgba(var(--accent-dark), 0.2));
+		border-radius: 12px;
+		margin: 2rem 0;
+	}
+
+	.join-button {
+		display: inline-block;
+		background: rgb(var(--accent));
+		color: white;
+		padding: 1rem 2rem;
+		border-radius: 8px;
+		text-decoration: none;
+		font-weight: bold;
+		margin-top: 2rem;
+		transition: background 0.2s;
+	}
+
+	.join-button:hover {
+		background: rgb(var(--accent-light));
+	}
+
+	@media (max-width: 768px) {
+		h1 {
+			font-size: 3rem;
+		}
+
+		.features {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
